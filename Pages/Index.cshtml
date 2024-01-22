@@ -1,0 +1,29 @@
+﻿@page
+@inject IHttpContextAccessor contxt;
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form asp-controller="Home" asp-action="Index" method="post" asp-antiforgery="true">
+        <input name="txtname" type="Text" />
+        <input type="Submit" value="Submit" />
+    </form>
+</div>
+<ul>
+        <li>First name: @contxt.HttpContext.Session.GetString("a")</li>
+        <li>Last name: @contxt.HttpContext.Session.GetString("b")</li>
+        <li>Gender: @contxt.HttpContext.Session.GetString("c")</li>
+        <li>NRIC: @contxt.HttpContext.Session.GetString("d")</li>
+        <li>Email Address: @contxt.HttpContext.Session.GetString("e")</li>
+        <li>Password: @contxt.HttpContext.Session.GetString("f")</li>
+        <li>Confirm Password: @contxt.HttpContext.Session.GetString("g")</li>
+        <li>DOB: @contxt.HttpContext.Session.GetString("h")</li>
+        <li>Resume: @contxt.HttpContext.Session.GetString("i")</li>
+        <li>Who am I: @contxt.HttpContext.Session.GetString("j")</li>
+    </ul>
+
+
+
